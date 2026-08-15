@@ -24,7 +24,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EireneOps — Operational Intelligence & Autonomous Systems",
+  title: "EireneOps - Operational Intelligence & Autonomous Systems",
   description:
     "EireneOps builds intelligent operational systems for executives, law firms, and high-trust organizations requiring reliable, secure, and professional technology.",
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Nypzim Holdings LLC" }],
   openGraph: {
-    title: "EireneOps — Operational Intelligence & Autonomous Systems",
+    title: "EireneOps - Operational Intelligence & Autonomous Systems",
     description:
       "Intelligent systems for the people who keep organizations moving. Combining software, automation, and controlled agentic workflows into secure platforms.",
     type: "website",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EireneOps — Operational Intelligence & Autonomous Systems",
+    title: "EireneOps - Operational Intelligence & Autonomous Systems",
     description:
       "Intelligent operational systems for executives, law firms, and high-trust organizations.",
   },
