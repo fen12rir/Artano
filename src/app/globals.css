@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0C0D0F;
+  --elevated: #141518;
+  --raised: #1C1E22;
+  --surface: #23252A;
+  --text: #F0EDE8;
+  --secondary: #9B9892;
+  --tertiary: #5C5A57;
+  --accent: #C8A96E;
+  --accent-light: #E2C98A;
+  --accent-dark: #8A6F3E;
+  --border: rgba(255, 255, 255, 0.07);
+  --strong-border: rgba(255, 255, 255, 0.12);
+  --danger: #C65C5C;
+  --success: #6BA08A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-brand-bg: #0C0D0F;
+  --color-brand-elevated: #141518;
+  --color-brand-raised: #1C1E22;
+  --color-brand-surface: #23252A;
+  --color-brand-text: #F0EDE8;
+  --color-brand-secondary: #9B9892;
+  --color-brand-tertiary: #5C5A57;
+  --color-brand-accent: #C8A96E;
+  --color-brand-accent-light: #E2C98A;
+  --color-brand-accent-dark: #8A6F3E;
+  --color-brand-border: rgba(255, 255, 255, 0.07);
+  --color-brand-strong-border: rgba(255, 255, 255, 0.12);
+  --color-brand-danger: #C65C5C;
+  --color-brand-success: #6BA08A;
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0C0D0F;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0D0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23252A;
+  border-radius: 4px;
+  border: 2px solid #0C0D0F;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A3D45;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
