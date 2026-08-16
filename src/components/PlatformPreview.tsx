@@ -208,7 +208,7 @@ export function PlatformPreview() {
                         <span className="px-1.5 py-0.5 text-[10px] font-mono bg-brand-danger/20 text-brand-danger border border-brand-danger/30 rounded">
                           LEGAL REVIEW
                         </span>
-                        Master Service Agreement — Annex B Liability Cap Redline
+                        Master Service Agreement - Annex B Liability Cap Redline
                       </div>
                       <p className="text-[11px] text-brand-secondary mt-1">
                         Agent extracted 2 unaligned indemnification terms against standard advisory policy.
@@ -262,7 +262,7 @@ export function PlatformPreview() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="p-3 bg-brand-bg border border-brand-border rounded-lg">
                     <div className="text-xs font-medium text-brand-text mb-1">
-                      Quarterly Executive Briefing — Q3
+                      Quarterly Executive Briefing - Q3
                     </div>
                     <div className="text-[10px] text-brand-tertiary font-mono">
                       Generated 08:30 today · 14 citations verified
