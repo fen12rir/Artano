@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
-import { CheckCircle2, ArrowRight, Zap, Settings2 } from "lucide-react";
+import { CheckCircle2, Zap, Settings2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface StandardCustomProps {
   onRequestDemo: () => void;
@@ -7,46 +10,58 @@ interface StandardCustomProps {
 
 export function StandardCustom({ onRequestDemo }: StandardCustomProps) {
   return (
-    <section className="py-24 bg-brand-elevated/30 border-y border-brand-border relative">
+    <section className="py-16 sm:py-20 lg:py-24 bg-brand-elevated/30 border-y border-brand-border relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mb-12 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-brand-surface border border-brand-border rounded text-xs font-mono uppercase tracking-wider text-brand-accent mb-4">
             Deployment Paths
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-text tracking-tight mb-4">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-brand-text tracking-tight mb-4 leading-snug sm:leading-tight">
             Start with a proven foundation. Expand when your organization needs more.
           </h2>
-          <p className="text-brand-secondary text-base sm:text-lg leading-relaxed">
+          <p className="text-brand-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
             EireneOps provides both structured, rapid-deployment platforms and deeply customized enterprise solutions tailored to specific organizational workflows.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Two Paths Comparison Grid (Not a generic pricing table) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        {/* Two Paths Comparison Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           
           {/* Path 1: Standard Deployment */}
-          <div className="bg-brand-elevated border border-brand-border rounded-xl p-8 flex flex-col justify-between relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-brand-elevated border border-brand-border rounded-xl p-6 sm:p-8 flex flex-col justify-between relative"
+          >
             <div>
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-5 sm:mb-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-surface rounded-full border border-brand-border text-xs font-mono text-brand-accent">
-                  <Zap className="w-3.5 h-3.5" /> RAPID DEPLOYMENT
+                  <Zap className="w-3.5 h-3.5 shrink-0" /> RAPID DEPLOYMENT
                 </div>
-                <span className="text-xs font-mono text-brand-tertiary">STRUCTURED</span>
+                <span className="text-[11px] sm:text-xs font-mono text-brand-tertiary">STRUCTURED</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-brand-text mb-2">
+              <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-brand-text mb-2">
                 Standard Platform
               </h3>
-              <p className="text-sm text-brand-accent font-medium mb-4">
+              <p className="text-xs sm:text-sm text-brand-accent font-medium mb-3 sm:mb-4">
                 Immediate operational leverage with our battle-tested executive and legal foundation.
               </p>
-              <p className="text-xs sm:text-sm text-brand-secondary leading-relaxed mb-8">
+              <p className="text-xs sm:text-sm text-brand-secondary leading-relaxed mb-6 sm:mb-8">
                 Designed for solo principals, executive assistants, legal boutiques, and operational teams looking for an immediate upgrade to their productivity, calendar protection, and document intelligence.
               </p>
 
-              <div className="space-y-3.5 mb-8">
+              <div className="space-y-3 sm:space-y-3.5 mb-6 sm:mb-8">
                 {[
                   "Core EireneOps Executive Command Dashboard",
                   "AI Document Synthesis & Legal Matter Assistant",
@@ -56,49 +71,55 @@ export function StandardCustom({ onRequestDemo }: StandardCustomProps) {
                   "Standard System Integrations (Google, Outlook, Slack)",
                   "Dedicated Customer Success Onboarding",
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
+                  <div key={idx} className="flex items-start gap-2.5 sm:gap-3">
                     <CheckCircle2 className="w-4 h-4 text-brand-accent mt-0.5 shrink-0" />
-                    <span className="text-xs sm:text-sm text-brand-text">{item}</span>
+                    <span className="text-xs sm:text-sm text-brand-text leading-snug">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-6 border-t border-brand-border">
+            <div className="pt-5 sm:pt-6 border-t border-brand-border">
               <button
                 onClick={onRequestDemo}
-                className="w-full py-3 bg-brand-surface border border-brand-strong-border hover:border-brand-accent text-brand-text hover:text-brand-accent rounded-lg text-sm font-medium transition-all"
+                className="w-full py-3 bg-brand-surface border border-brand-strong-border hover:border-brand-accent text-brand-text hover:text-brand-accent rounded-lg text-xs sm:text-sm font-medium transition-all"
               >
                 Explore Standard Platform
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Path 2: Custom Enterprise Architecture */}
-          <div className="bg-brand-elevated border border-brand-accent/50 rounded-xl p-8 flex flex-col justify-between relative shadow-xl shadow-brand-accent/5">
-            <div className="absolute top-0 right-8 -translate-y-1/2 px-3 py-1 bg-brand-accent text-brand-bg rounded text-[11px] font-mono font-bold tracking-wider uppercase">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-brand-elevated border border-brand-accent/50 rounded-xl p-6 sm:p-8 flex flex-col justify-between relative shadow-xl shadow-brand-accent/5"
+          >
+            <div className="absolute top-0 right-6 sm:right-8 -translate-y-1/2 px-2.5 sm:px-3 py-1 bg-brand-accent text-brand-bg rounded text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase">
               ENTERPRISE TAILORED
             </div>
 
             <div>
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-5 sm:mb-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-surface rounded-full border border-brand-border text-xs font-mono text-brand-accent">
-                  <Settings2 className="w-3.5 h-3.5" /> BESPOKE ENGINEERING
+                  <Settings2 className="w-3.5 h-3.5 shrink-0" /> BESPOKE ENGINEERING
                 </div>
-                <span className="text-xs font-mono text-brand-tertiary">ORGANIZATION-SPECIFIC</span>
+                <span className="text-[11px] sm:text-xs font-mono text-brand-tertiary">ORGANIZATION-SPECIFIC</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-brand-text mb-2">
+              <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-brand-text mb-2">
                 Custom Systems
               </h3>
-              <p className="text-sm text-brand-accent font-medium mb-4">
+              <p className="text-xs sm:text-sm text-brand-accent font-medium mb-3 sm:mb-4">
                 Engineered from the ground up to match proprietary operations, compliance, and systems.
               </p>
-              <p className="text-xs sm:text-sm text-brand-secondary leading-relaxed mb-8">
+              <p className="text-xs sm:text-sm text-brand-secondary leading-relaxed mb-6 sm:mb-8">
                 Designed for multi-partner firms, corporate enterprises, specialized industry teams, and high-security institutions requiring tailored agentic workflows, custom interfaces, and strict tenancy options.
               </p>
 
-              <div className="space-y-3.5 mb-8">
+              <div className="space-y-3 sm:space-y-3.5 mb-6 sm:mb-8">
                 {[
                   "Everything in Standard Foundation",
                   "Custom Agentic Engineering & Multi-Step Workflows",
@@ -106,25 +127,25 @@ export function StandardCustom({ onRequestDemo }: StandardCustomProps) {
                   "Organization-Specific Role & Permission Matrices",
                   "Custom Dashboards & Specialized Operator Consoles",
                   "Private VPC & Sovereign Cloud Deployment Options",
-                  "White-Glove Engineering & Long-Term Technical Partnership",
+                  "White-Glove Engineering & Long-Term Partnership",
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
+                  <div key={idx} className="flex items-start gap-2.5 sm:gap-3">
                     <CheckCircle2 className="w-4 h-4 text-brand-accent mt-0.5 shrink-0" />
-                    <span className="text-xs sm:text-sm text-brand-text">{item}</span>
+                    <span className="text-xs sm:text-sm text-brand-text leading-snug">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-6 border-t border-brand-border">
+            <div className="pt-5 sm:pt-6 border-t border-brand-border">
               <button
                 onClick={onRequestDemo}
-                className="w-full py-3 bg-brand-accent text-brand-bg hover:bg-brand-accent-light rounded-lg text-sm font-medium transition-all shadow-md"
+                className="w-full py-3 bg-brand-accent text-brand-bg hover:bg-brand-accent-light rounded-lg text-xs sm:text-sm font-medium transition-all shadow-md"
               >
                 Discuss Custom Solution
               </button>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

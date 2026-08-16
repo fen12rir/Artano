@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { Briefcase, Scale, Layers, Bot, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ServicesProps {
   onRequestDemo: () => void;
@@ -66,37 +69,47 @@ const CAPABILITIES = [
 
 export function Services({ onRequestDemo }: ServicesProps) {
   return (
-    <section id="solutions" className="py-24 bg-brand-bg relative">
+    <section id="solutions" className="py-16 sm:py-20 lg:py-24 bg-brand-bg relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mb-12 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-brand-surface border border-brand-border rounded text-xs font-mono uppercase tracking-wider text-brand-accent mb-4">
             System Pillars
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-text tracking-tight mb-4">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-brand-text tracking-tight mb-4 leading-snug sm:leading-tight">
             Four disciplines. One coherent operational infrastructure.
           </h2>
-          <p className="text-brand-secondary text-base sm:text-lg leading-relaxed">
+          <p className="text-brand-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
             EireneOps is not a collection of fragmented point solutions. It is a comprehensive operational ecosystem engineered to reduce cognitive load, preserve executive focus, and execute work with silent precision.
           </p>
-        </div>
+        </motion.div>
 
         {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {CAPABILITIES.map((cap) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
+          {CAPABILITIES.map((cap, index) => {
             const Icon = cap.icon;
             return (
-              <div
+              <motion.div
                 key={cap.number}
-                className="group relative bg-brand-elevated border border-brand-border hover:border-brand-accent/40 rounded-xl p-6 sm:p-8 transition-all duration-300 flex flex-col justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="group relative bg-brand-elevated border border-brand-border hover:border-brand-accent/40 rounded-xl p-5 sm:p-7 lg:p-8 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top bar with number and icon */}
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-5 sm:mb-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-brand-surface border border-brand-border flex items-center justify-center text-brand-accent group-hover:border-brand-accent/40 transition-colors">
-                        <Icon className="w-5 h-5" />
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-brand-surface border border-brand-border flex items-center justify-center text-brand-accent group-hover:border-brand-accent/40 transition-colors shrink-0">
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <span className="font-mono text-xs text-brand-tertiary">
                         PILLAR // {cap.number}
@@ -107,40 +120,40 @@ export function Services({ onRequestDemo }: ServicesProps) {
                       className="text-brand-tertiary group-hover:text-brand-accent transition-colors p-1.5 rounded-md hover:bg-brand-surface"
                       aria-label={`Explore ${cap.title}`}
                     >
-                      <ArrowUpRight className="w-5 h-5" />
+                      <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                   </div>
 
                   {/* Title & Tagline */}
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-text mb-2 group-hover:text-brand-accent-light transition-colors">
+                  <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-brand-text mb-2 group-hover:text-brand-accent-light transition-colors">
                     {cap.title}
                   </h3>
-                  <p className="text-brand-accent text-xs sm:text-sm font-medium mb-4 leading-normal">
+                  <p className="text-brand-accent text-xs sm:text-sm font-medium mb-3 sm:mb-4 leading-normal">
                     {cap.tagline}
                   </p>
 
                   {/* Body description */}
-                  <p className="text-brand-secondary text-xs sm:text-sm leading-relaxed mb-6">
+                  <p className="text-brand-secondary text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
                     {cap.description}
                   </p>
                 </div>
 
                 {/* Feature checklist */}
-                <div className="pt-6 border-t border-brand-border/60">
-                  <ul className="space-y-2.5">
+                <div className="pt-5 sm:pt-6 border-t border-brand-border/60">
+                  <ul className="space-y-2 sm:space-y-2.5">
                     {cap.features.map((feature, idx) => (
                       <li
                         key={idx}
                         className="flex items-start gap-2.5 text-xs text-brand-secondary"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-accent/80 mt-1.5 shrink-0" />
-                        <span>{feature}</span>
+                        <span className="leading-normal">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-              </div>
+              </motion.div>
             );
           })}
         </div>
